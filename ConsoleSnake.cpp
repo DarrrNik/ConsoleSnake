@@ -39,7 +39,8 @@ void PlaySnake()
 		else if (snkDir != UP && GetKeyState('S') & 0x8000) snkDir = DOWN;
 		else if (snkDir != LEFT && GetKeyState('D') & 0x8000) snkDir = RIGHT;
 
-		if (((double)clock() - (double)time) / CLOCKS_PER_SEC < 0.3) continue;
+		if (((double)clock() - time) / CLOCKS_PER_SEC < 0.3) continue;
+
 		time = clock();
 
 		for (int i = snkLen - 2; i >= 0; --i) {
@@ -74,6 +75,7 @@ void PlaySnake()
 		for (int i = 0; i < snkLen; ++i)
 			_map[snkY[i] * MAP_WIDTH + snkX[i]] = snkSymb;
 		CursorToXY(0, 0);
+		std::cout << "Snake length: " << snkLen << std::endl;
 		std::cout << _map;
 		for (int i = 0; i < snkLen; ++i)
 			_map[snkY[i] * MAP_WIDTH + snkX[i]] = ' ';
