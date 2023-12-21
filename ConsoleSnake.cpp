@@ -39,7 +39,7 @@ void PlaySnake()
 		else if (snkDir != UP && GetKeyState('S') & 0x8000) snkDir = DOWN;
 		else if (snkDir != LEFT && GetKeyState('D') & 0x8000) snkDir = RIGHT;
 
-		if ((clock() - time) / CLOCKS_PER_SEC < 1) continue;
+		if (((double)clock() - (double)time) / CLOCKS_PER_SEC < 0.3) continue;
 		time = clock();
 
 		for (int i = snkLen - 2; i >= 0; --i) {
